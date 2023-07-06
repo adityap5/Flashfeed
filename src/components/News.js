@@ -272,6 +272,13 @@ export class News extends Component {
             arcticle: this.arcticle
         }
     }
+    async componentDidMount() {
+       let url =  "https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724"
+       let data = await fetch(url);
+let parsedData = await data.json();
+console.log(parsedData);
+this.setState({arcticles:parsedData.arcticles})
+    }
 
 
     render() {
