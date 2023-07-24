@@ -9,11 +9,12 @@ export class News extends Component {
     super();
     this.state = {
       articles: [],
-      loading: false
+      loading: false,
+      page:1
     }
   }
   async componentDidMount() {
-    let url ="https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724";
+    let url ="https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=1&pageSize=20";
 
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -22,29 +23,31 @@ export class News extends Component {
   }
 
   handlePrevClick = async () => {
-    let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724";
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page - 1}&pageSize=20`;
 
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
+   
     this.setState({
 
       page: this.state.page -1 ,
-    arcticles: parsedData.arcticles 
+    articles: parsedData.articles 
    
     })
   }
 
   handleNextClick = async () => {
 
-    let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724";
+    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page +1}&pageSize=20`;
 
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
+    
     this.setState({
       page: this.state.page + 1,
-    arcticles: parsedData.arcticles 
+    articles: parsedData.articles 
    
     })
   }
@@ -61,9 +64,9 @@ export class News extends Component {
           })}
 
         </div>
-        <div className="container dflex justifycontentbetween my4">
-          <button disabled={this.state.page <= 1} type="button" className="btn btndanger" onClick={this.handlePrevClick}>&larr;Previous</button>
-          <button type="button" className="btn btndanger" onClick={this.handleNextClick}>Next&rarr;</button>
+        <div className="container d-flex justify-content-between my4">
+          <button disabled={this.state.page <= 1} type="button" className="btn btn-danger" onClick={this.handlePrevClick}>&larr;Previous</button>
+          <button type="button" className="btn btn-danger" onClick={this.handleNextClick}>Next&rarr;</button>
 
         </div>
       </div>
