@@ -1356,7 +1356,7 @@ export class News extends Component {
         <h2>Flashfeed Main Headlines</h2>
         <div className="row">
           {this.state.arcticle.map((element) => {
-            return <div className="colmd4">
+            return <div className="col md4">
               <NewsItem key={element.url} title={element.title.slice(0, 44)} description={element.description.slice(0, 88)} imageUrl={element.urlToImage} newsUrl={element.url} />
             </div>
           })}
