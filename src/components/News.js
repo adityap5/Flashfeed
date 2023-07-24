@@ -19,7 +19,7 @@ export class News extends Component {
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
-    this.setState({ articles: parsedData.articles })
+    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults })
   }
 
   handlePrevClick = async () => {
@@ -38,18 +38,22 @@ export class News extends Component {
   }
 
   handleNextClick = async () => {
+if(this.state.page +1 > Math.ceil(this.state.totalResults/20)){
 
-    let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page +1}&pageSize=20`;
+}else{
+  let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page +1}&pageSize=20`;
 
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    console.log(parsedData);
-    
-    this.setState({
-      page: this.state.page + 1,
-    articles: parsedData.articles 
+  let data = await fetch(url);
+  let parsedData = await data.json();
+  console.log(parsedData);
+  
+  this.setState({
+    page: this.state.page + 1,
+  articles: parsedData.articles 
+ 
+  })
+}
    
-    })
   }
 
   render() {
