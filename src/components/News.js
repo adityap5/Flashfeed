@@ -23,7 +23,7 @@ static propTypes = {
     }
   }
   async componentDidMount() {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category={this.props.category}in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=1&pageSize=6`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=1&pageSize=6`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -32,7 +32,7 @@ static propTypes = {
   }
 
   handlePrevClick = async () => {
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category={this.props.category}in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page - 1}&pageSize=6`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page - 1}&pageSize=6`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -50,7 +50,7 @@ static propTypes = {
 
     }else {
 
-      let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category={this.props.category}in&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page + 1}&pageSize=6`;
+      let url=`https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page + 1}&pageSize=6`;
       this.setState({ loading: true });
       let data = await fetch(url);
       let parsedData = await data.json();
