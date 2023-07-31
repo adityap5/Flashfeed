@@ -15,7 +15,7 @@ static propTypes = {
   category: PropTypes.string
 }
   constructor() {
-    super();
+    super(); 
     this.state = {
       articles: [],
       loading: false,
