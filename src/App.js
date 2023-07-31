@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  
+
 } from "react-router-dom";
 
 
@@ -25,13 +25,13 @@ return(
 <Navbar/>
 
 <Routes>
-          <Route path="/"> <News country="in" category = "general"/>  </Route>
-          <Route path="/business"> <News country="in" category = "business"/>  </Route>
-          <Route path="/entertainment"> <News country="in" category = "entertainment"/>  </Route>
-          <Route path="/health"> <News country="in" category = "health"/>  </Route>
-          <Route path="/science"> <News country="in" category = "science"/>  </Route>
-          <Route path="/technology"> <News country="in" category = "technology"/>  </Route>
-          <Route path="/sports"> <News country="in" category = "sports"/>  </Route>
+          <Route path="/"> element={<News country="in" category = "general"/>}  </Route>
+          <Route path="/business">element={<News country="in" category = "business"/>}   </Route>
+          <Route path="/entertainment"> element={<News country="in" category = "entertainment"/> } </Route>
+          <Route path="/health">element={ <News country="in" category = "health"/>}  </Route>
+          <Route path="/science"> element={<News country="in" category = "science"/>}  </Route>
+          <Route path="/technology">element={<News country="in" category = "technology"/>}   </Route>
+          <Route path="/sports"> element={<News country="in" category = "sports"/> } </Route>
         
         </Routes>
 </Router>
