@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 
 import {
   BrowserRouter as Router,
-  Switch,
+  Routes,
   Route,
   
 } from "react-router-dom";
@@ -24,7 +24,7 @@ return(
 
 <Navbar/>
 
-<Switch>
+<Routes>
           <Route path="/"> <News country="in" category = "general"/>  </Route>
           <Route path="/business"> <News country="in" category = "business"/>  </Route>
           <Route path="/entertainment"> <News country="in" category = "entertainment"/>  </Route>
@@ -33,7 +33,7 @@ return(
           <Route path="/technology"> <News country="in" category = "technology"/>  </Route>
           <Route path="/sports"> <News country="in" category = "sports"/>  </Route>
         
-        </Switch>
+        </Routes>
 </Router>
     </div>
 )
