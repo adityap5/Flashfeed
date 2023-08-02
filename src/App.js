@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import News from './components/News';
-
+import About from './components/About';
 import React, { Component } from 'react';
 
 import {
@@ -19,6 +19,7 @@ export default class App extends Component {
           <Navbar />
           <Routes>
             <Route path="/" element={<News key="sports" country="in" category="sports"/>} />
+            <Route path="/about" element={<About/>} />
             {/* <Route exact path="/"> element={<News key="general" country="in" category="general" />}  </Route>
             <Route exact path="/business">element={<News key="business" country="in" category="business" />}   </Route>
             <Route exact path="/entertainment"> element={<News key="entertainment" country="in" category="entertainment" />} </Route>
