@@ -7,9 +7,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-
-} from "react-router-dom";
+  Route,} from "react-router-dom";
 
 
 export default class App extends Component {
@@ -22,7 +20,6 @@ export default class App extends Component {
           <Navbar />
 <News/>
           <Routes>
-            
             <Route exact path="/"> element={<News key="general" country="in" category="general" />}  </Route>
             <Route exact path="/business">element={<News key="business" country="in" category="business" />}   </Route>
             <Route exact path="/entertainment"> element={<News key="entertainment" country="in" category="entertainment" />} </Route>
@@ -37,3 +34,4 @@ export default class App extends Component {
     )
   }
 }
+
