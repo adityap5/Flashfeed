@@ -16,19 +16,18 @@ export default class App extends Component {
     return (
       <div>
         <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<News key="sports" country="in" category="sports"/>} />
-            <Route path="/about" element={<About/>} />
-            {/* <Route exact path="/"> element={<News key="general" country="in" category="general" />}  </Route>
-            <Route exact path="/business">element={<News key="business" country="in" category="business" />}   </Route>
-            <Route exact path="/entertainment"> element={<News key="entertainment" country="in" category="entertainment" />} </Route>
-            <Route exact path="/health">element={<News key="health" country="in" category="health" />}  </Route>
-            <Route exact path="/science"> element={<News key="science" country="in" category="science" />}  </Route>
-            <Route exact path="/technology">element={<News key="technology" country="in" category="technology" />}   </Route>
-            <Route exact  path="/sports"> element={<News key="sports" country="in" category="sports" />} </Route> */}
-
-          </Routes>
+        <Navbar/>
+        <Routes>
+          <Route path="/" element={< News  key='general' country="in" category="general"/>}></Route>
+          <Route path="/Business" element={ <News key='business'  country="in" category="business"/>}></Route>
+          <Route path="/Entertainment" element={<News key='entertainment'  country="in" category="entertainment"/>}></Route>
+          <Route path="/General" element={ <News key='general'  country="in" category="general"/>}></Route>
+          <Route path="/Health" element={ <News key='health'  country="in" category="health"/>}></Route>
+          <Route path="/Science" element={ <News key='science'  country="in" category="science"/>}></Route>
+          <Route path="/Sports" element={ <News key='sports' country="in" category="sports"/>}></Route>
+          <Route path="/Technology" element={ <News  key='technology}>' country="in" category="technology"/>}></Route>
+<Route path="/about" element={<About />} />
+        </Routes>
         </Router>
       </div>
     )
