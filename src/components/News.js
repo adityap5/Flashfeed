@@ -68,7 +68,7 @@ static propTypes = {
   render() {
     return (
       <div className="container my 3">
-        <h1 className="text-center">Flashfeed Main Headlines</h1>
+        <h1 className="text-center my-3">Flashfeed Main Headlines</h1>
         {this.state.loading && <Spinner />}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
