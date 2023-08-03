@@ -12,8 +12,8 @@ export class NewsItem extends Component {
         <img src={imageUrl?imageUrl:"https://codezine.jp/static/images/article/18068/12694_og.jpg "} className="card-img-top" alt="..."/>
         <div className="card-body">
             <h5 className="card-title">{title}....</h5>
-            <p className="card-text">{description}....</p>
-            <p className="card-text"><strong>{author}</strong><br /><strong>{publishedAt}</strong></p>
+            <p className="card-text">{description}....</p><br />
+            <p className="card-text"><figcaption class="blockquote-footer">By {author} on {publishedAt}</figcaption></p>
            
 
             <a href={newsUrl} target='_blank'rel="noreferrer" className="btn btn-sm btn-danger">Read More</a>
