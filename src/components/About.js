@@ -16,7 +16,7 @@ export default class About extends Component {
                         </h2>
                         <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                             <div className="accordion-body">
-                            <strong class="text-bg-danger">flashfeed</strong> provide the daily news of differnet categories from around the world.
+                            <strong className="text-bg-danger">flashfeed</strong> provide the daily news of differnet categories from around the world.
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ export default class About extends Component {
                         </h2>
                         <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div className="accordion-body" >
-                            <strong class="text-bg-danger">flashfeed</strong>  is a free to use website , where you can get your daily dose of news as you want.
+                            <strong className="text-bg-danger">flashfeed</strong>  is a free to use website , where you can get your daily dose of news as you want.
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@ export default class About extends Component {
                         </h2>
                         <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div className="accordion-body" >
-                            <strong class="text-bg-danger">flashfeed</strong> website is designed and developed to work seamlessly across different web browsers, ensuring consistent functionality and appearance for users regardless of their chosen browser.
+                            <strong className="text-bg-danger">flashfeed</strong> website is designed and developed to work seamlessly across different web browsers, ensuring consistent functionality and appearance for users regardless of their chosen browser.
                             </div>
                         </div>
                     </div>
