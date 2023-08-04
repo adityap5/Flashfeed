@@ -18,7 +18,6 @@ pagesize= 20;
       <div>
         <Router>
           <Navbar />
-          <div className="h-2 bg-primary transition-all duration-100 rounded-tr-sm rounded-br-sm" style={{width: '6%'}}></div>
           <Routes>
             <Route path="/" element={< News key='general' country="in" pagesize={this.pagesize} category="general" />}></Route>
             <Route path="/Business" element={<News key='business' country="in" pagesize={this.pagesize} category="business" />}></Route>
