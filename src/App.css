@@ -43,7 +43,8 @@
   background-color:rgba(30, 29, 29, 0.875);
 }
 ::-webkit-scrollbar-thumb{
-  background-color:rgb(173, 13, 173);
+  background-color: #1a314b;
+  
   border-radius: 0.5rem;
   border: 0.4rem solid transparent;
   background-clip: content-box;
