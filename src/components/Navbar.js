@@ -48,6 +48,7 @@ export class Navbar extends Component {
             </div>
           </div>
         </nav>
+        
       </div>
     )
   }

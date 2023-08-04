@@ -12,12 +12,13 @@ import {
 
 
 export default class App extends Component {
-pagesize= 9;
+pagesize= 20;
   render() {
     return (
       <div>
         <Router>
           <Navbar />
+          <div className="h-2 bg-primary transition-all duration-100 rounded-tr-sm rounded-br-sm" style={{width: '6%'}}></div>
           <Routes>
             <Route path="/" element={< News key='general' country="in" pagesize={this.pagesize} category="general" />}></Route>
             <Route path="/Business" element={<News key='business' country="in" pagesize={this.pagesize} category="business" />}></Route>
@@ -30,6 +31,7 @@ pagesize= 9;
             <Route path="/about" element={<About />} />
           </Routes>
         </Router>
+        
       </div>
     )
   }
