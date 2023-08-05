@@ -36,13 +36,11 @@ export class News extends Component {
   }
 
   handlePrevClick = async () => {
- 
     this.setState({page: this.state.page -1});
     this.updateNews();
   }
 
   handleNextClick = async () => {
-   
     this.setState({page: this.state.page +1});
     this.updateNews();
     }
@@ -57,7 +55,7 @@ export class News extends Component {
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
             return <div className="col-md-4">
-              <NewsItem key={element.url} title={element.title ? element.title : ""} source={element.source.name} description={element.description ? element.description : ""} publishedAt={element.publishedAt ? element.publishedAt:""}author={element.author ? element.author : <figcaption className="blockquote-footer">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     Sources</figcaption>} imageUrl={element.urlToImage} newsUrl={element.url} />
+              <NewsItem key={element.url} title={element.title ? element.title : ""} source={element.source.name} description={element.description ? element.description : ""} publishedAt={element.publishedAt ? element.publishedAt:""}author={element.author ? element.author : element.source.name} imageUrl={element.urlToImage} newsUrl={element.url} />
             </div>
           })}
 
