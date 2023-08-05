@@ -19,7 +19,7 @@ export class News extends Component {
     super(props);
     this.state = {
       articles: [],
-      loading: false,
+      loading: true,
       page: 1,
       totalResults: 0
     }
@@ -37,26 +37,25 @@ export class News extends Component {
     this.updateNews();
   }
 
-  handlePrevClick = async () => {
-    this.setState({ page: this.state.page - 1 });
-    this.updateNews();
-  }
+  // handlePrevClick = async () => {
+  //   this.setState({ page: this.state.page - 1 });
+  //   this.updateNews();
+  // }
 
-  handleNextClick = async () => {
-    this.setState({ page: this.state.page + 1 });
-    this.updateNews();
-  }
+  // handleNextClick = async () => {
+  //   this.setState({ page: this.state.page + 1 });
+  //   this.updateNews();
+  // }
 
   fetchMoreData = async () => {
     this.setState({ page: this.state.page + 1 });
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page}&pageSize=${this.props.pagesize}`;
-    this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     this.setState({
       articles: this.state.articles.concat(parsedData.articles),
       totalResults : parsedData.totalResults,
-      loading : false 
+     
     });
 };
 
@@ -65,6 +64,7 @@ render() {
   return (
     <div className="container my 3">
       <h1 className="text-center my-3">Flashfeed Main {this.props.category} Headlines </h1>
+      {this.state.loading && <Spinner />}
       <InfiniteScroll
         dataLength={this.state.articles.length}
         next={this.fetchMoreData}
