@@ -14,7 +14,7 @@ export class News extends Component {
     pagesize: PropTypes.number,
     category: PropTypes.string
   }
- 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,10 +22,10 @@ export class News extends Component {
       loading: false,
       page: 1,
       totalResults: 0
-    } 
-    document.title= `${this.props.category} - Flashfeed`;
+    }
+    document.title = `${this.props.category} - Flashfeed`;
   }
-  async updateNews(){
+  async updateNews() {
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page}&pageSize=${this.props.pagesize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
@@ -38,46 +38,54 @@ export class News extends Component {
   }
 
   handlePrevClick = async () => {
-    this.setState({page: this.state.page -1});
+    this.setState({ page: this.state.page - 1 });
     this.updateNews();
   }
 
   handleNextClick = async () => {
-    this.setState({page: this.state.page +1});
+    this.setState({ page: this.state.page + 1 });
     this.updateNews();
-    }
-    fetchMoreData = () => {
-    setTimeout(() => {
-        this.setState({
-          items: this.state.articles.concat(Array.from({ length: 20 }))
-        });
-      }, 1500);
-    };
-  
+  }
 
-  render() {
-    return (
-      <div className="container my 3">
-        <h1 className="text-center my-3">Flashfeed Main {this.props.category} Headlines </h1>
-       
-        <InfiniteScroll
-          dataLength={this.state.articles.length}
-          next={this.fetchMoreData}
-          hasMore={this.state.articles.length === this.state.totalResults}
-          loader={<Spinner/>}
-        />
-        <div className="row">
-          {this.state.articles.map((element) => {
-            return <div className="col-md-4">
-              <NewsItem key={element.url} title={element.title ? element.title : ""} source={element.source.name} description={element.description ? element.description : ""} publishedAt={element.publishedAt ? element.publishedAt:""}author={element.author ? element.author : element.source.name} imageUrl={element.urlToImage} newsUrl={element.url} />
-            </div>
-          })}
+  fetchMoreData = async () => {
+    this.setState({ page: this.state.page + 1 });
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page}&pageSize=${this.props.pagesize}`;
+    this.setState({ loading: true });
+    let data = await fetch(url);
+    let parsedData = await data.json();
+    this.setState({
+      articles: this.state.articles.concat(parsedData.articles),
+      totalResults : parsedData.totalResults,
+      loading : false 
+    });
+};
 
-        </div >
-     
+
+render() {
+  return (
+    <div className="container my 3">
+      <h1 className="text-center my-3">Flashfeed Main {this.props.category} Headlines </h1>
+      <InfiniteScroll
+        dataLength={this.state.articles.length}
+        next={this.fetchMoreData}
+        hasMore={this.state.articles.length !== this.state.totalResults}
+        loader={<Spinner />}
+      >
+      <div className="container">
+      <div className="row">
+        {this.state.articles.map((element) => {
+          return <div className="col-md-4">
+            <NewsItem key={element.url} title={element.title ? element.title : ""} source={element.source.name} description={element.description ? element.description : ""} publishedAt={element.publishedAt ? element.publishedAt : ""} author={element.author ? element.author : element.source.name} imageUrl={element.urlToImage} newsUrl={element.url} />
+          </div>
+         
+        })}
+
+      </div >
       </div>
+      </InfiniteScroll>
+    </div>
 
-    )
-        }
+  )
+}
       }
 export default News
