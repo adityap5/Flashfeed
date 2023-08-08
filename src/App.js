@@ -17,11 +17,10 @@ state={
   progress:0
 };
 setProgress(progress) {
-this.setState({progress:progress});
-}
+this.setProgress({progress:progress});
+};
   render() {
-   
-    return (
+  return (
       
       <div>
          <LoadingBar
