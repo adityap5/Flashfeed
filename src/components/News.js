@@ -27,12 +27,15 @@ export class News extends Component {
     document.title = `${this.props.category} - Flashfeed`;
   }
   async updateNews() {
+    // this.props.setProgress(0);
     const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${this.state.page}&pageSize=${this.props.pagesize}`;
     this.setState({ loading: true });
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
-    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults, loading: false });
+    this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults, loading: false })
+    // this.props.setProgress(100);
+
   }
   async componentDidMount() {
     this.updateNews();
