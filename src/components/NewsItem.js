@@ -17,7 +17,7 @@ export class NewsItem extends Component {
             <div className="card-text"><figcaption className="blockquote-footer">By {author} on {new Date(publishedAt).toGMTString()}</figcaption></div>
            
 
-            <a href={newsUrl} target='_blank'rel="noreferrer" className="btn btn-sm btn-outline-info">Read More</a>
+            <a href={newsUrl} target='_blank'rel="noreferrer" className="btn btn-sm btn-outline-dark">Read More</a>
         </div>
         </div>
         </div>
