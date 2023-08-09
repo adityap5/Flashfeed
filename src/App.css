@@ -32,11 +32,17 @@
 }
 
 .card:hover{
-  background: #309df0;
+  background: #B1a6A4;
   color: #fff;
-  transform: scale(1.1);
+  transform: scale(1.15);
   z-index: 9;
 }
 .card:hover::before {
   background: rgb(85 108 214 / 10%);
+}
+.col-md-4{
+  padding-top: 1.7rem;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+
 }
