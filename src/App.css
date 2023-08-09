@@ -32,7 +32,7 @@
 }
 
 .card:hover{
-  background: #B1a6A4;
+  background: #e9cfb5;
   color: #fff;
   transform: scale(1.15);
   z-index: 9;

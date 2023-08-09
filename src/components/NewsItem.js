@@ -18,7 +18,7 @@ export class NewsItem extends Component {
       </div>
       
         <img src={imageUrl?imageUrl:"https://codezine.jp/static/images/article/18068/12694_og.jpg "} className="card-img-top" alt="..."/>
-        <div className="card-body">
+        <div className="card-body"> 
             <h5 className="card-title">{title}</h5>
             <p className="card-text">{description}....</p><br />
             <div className="card-text"><figcaption className="blockquote-footer">By {author} on {new Date(publishedAt).toGMTString()}</figcaption></div>
