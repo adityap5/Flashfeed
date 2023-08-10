@@ -45,9 +45,8 @@ const [totalResults, settotalResults] = useState(0)
   // }
 
  const fetchMoreData = async () => {
-  setpage(page+1)
-
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${page}&pageSize=${props.pagesize}`;
+  const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=9f3f41f6b2e94c0585b71945d10f3724&page=${page+1}&pageSize=${props.pagesize}`;
+    setpage(page+1)
     let data = await fetch(url);
     let parsedData = await data.json();
     setarticles(articles.concat(parsedData.articles))
@@ -58,7 +57,7 @@ const [totalResults, settotalResults] = useState(0)
 
     return (
       <div className="container my 3">
-        <h1 className="text-center my-3">Flashfeed Main {props.category} Headlines </h1>
+        <h1 className="text-center" style={{marginTop:65}}>Flashfeed Main {props.category} Headlines </h1>
         {loading && <Spinner />}
         <InfiniteScroll
           dataLength={articles.length}
