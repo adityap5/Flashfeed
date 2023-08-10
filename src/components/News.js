@@ -28,6 +28,7 @@ const [totalResults, settotalResults] = useState(0)
   }
   useEffect(() => {
     updateNews();
+    //eslint-disable-next-line
   }, [])
   
 //  const componentDidMount =async ()=> {
